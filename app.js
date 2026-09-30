@@ -1,4 +1,4 @@
-/* COGNITUM — a 4D neural manifold portfolio. Three.js + GLSL, zero frameworks. */
+/* COGNITUM â€” a 4D neural manifold portfolio. Three.js + GLSL, zero frameworks. */
 
 const FALLBACK = () => {
   document.getElementById('fallback').hidden = false;
@@ -16,17 +16,17 @@ try {
 
 /* ================= data ================= */
 const PROJECTS = [
-  { name: 'Advance_hand_gesture', short: 'ADVANCE', tag: 'VISION', blurb: 'Real-time hand-gesture recognition — MediaPipe landmarks, TensorFlow classifier, browser demo.', slug: 'Advance_hand_gesture' },
-  { name: 'auracontrol-backend', short: 'AURA', tag: 'VISION', blurb: 'Real-time gesture engine — FastAPI, MediaPipe, WebSocket dispatch loop.', slug: 'auracontrol-backend' },
-  { name: 'VOIS_AICTE_Oct2025_TUSHAR-KAPOOR', short: 'VOIS · EDA', tag: 'DATA', blurb: 'Netflix and Airbnb data analysis — EDA notebooks, decks, course materials.', slug: 'VOIS_AICTE_Oct2025_TUSHAR-KAPOOR' },
-  { name: 'OS_LAB_Linux_Ubantu', short: 'OS · LAB', tag: 'BACKEND', blurb: 'Operating systems lab in Python — system calls, CPU scheduling, sync, memory, file systems.', slug: 'OS_LAB_Linux_Ubantu' },
-  { name: 'go-bric', short: 'GO · BRIC', tag: 'AGENTS', blurb: 'Multi-agent company scouting — five specialist agents over a shared dataset. Next.js + Gemini.', slug: 'go-bric' },
-  { name: 'ReflectAI', short: 'REFLECT', tag: 'ENGINEERING', blurb: 'Deterministic end-of-day reflection — structured conversation to a psychological tree output.', slug: 'ReflectAI' },
-  { name: 'Sustainable-Agriculture-Project', short: 'AGRI · ML', tag: 'AI/ML', blurb: 'Crop recommendation from soil/climate features — full ML pipeline with preprocessing and evaluation.', slug: 'Sustainable-Agriculture-Project' },
-  { name: 'tushar_cse-AI-and-ML-A_AI-STUDY-PLANNER', short: 'STUDY · PLANNER', tag: 'BACKEND', blurb: 'AI study planner — syllabus upload, topic extraction, video curation. Frontend + backend.', slug: 'tushar_cse-AI-and-ML-A_AI-STUDY-PLANNER' },
-  { name: 'Kapoor-portfolio', short: 'PORTFOLIO', tag: 'FRONTEND', blurb: 'Personal portfolio site — React, Vite, Tailwind, GitHub Actions CI/CD.', slug: 'Kapoor-portfolio' },
-  { name: 'NPU-Fit-Checker-Automated-NPU-Fallback-Diagnosis', short: 'NPU · FIT', tag: 'SYSTEMS', blurb: 'Automated NPU fallback diagnosis — which layers fell back to CPU, on which target, and why. 30/30 tests green.', slug: 'NPU-Fit-Checker-Automated-NPU-Fallback-Diagnosis' },
-  { name: 'IBM-Cloud-project', short: 'IBM · CLOUD', tag: 'AI/ML', blurb: 'Predictive maintenance on IBM Cloud / Watsonx — Jupyter ML pipeline, training and evaluation.', slug: 'IBM-Cloud-project' },
+  { name: 'Advance_hand_gesture', short: 'ADVANCE', tag: 'VISION', blurb: 'Real-time hand-gesture recognition â€” MediaPipe landmarks, TensorFlow classifier, browser demo.', slug: 'Advance_hand_gesture' },
+  { name: 'auracontrol-backend', short: 'AURA', tag: 'VISION', blurb: 'Real-time gesture engine â€” FastAPI, MediaPipe, WebSocket dispatch loop.', slug: 'auracontrol-backend' },
+  { name: 'VOIS_AICTE_Oct2025_TUSHAR-KAPOOR', short: 'VOIS Â· EDA', tag: 'DATA', blurb: 'Netflix and Airbnb data analysis â€” EDA notebooks, decks, course materials.', slug: 'VOIS_AICTE_Oct2025_TUSHAR-KAPOOR' },
+  { name: 'OS_LAB_Linux_Ubantu', short: 'OS Â· LAB', tag: 'BACKEND', blurb: 'Operating systems lab in Python â€” system calls, CPU scheduling, sync, memory, file systems.', slug: 'OS_LAB_Linux_Ubantu' },
+  { name: 'go-bric', short: 'GO Â· BRIC', tag: 'AGENTS', blurb: 'Multi-agent company scouting â€” five specialist agents over a shared dataset. Next.js + Gemini.', slug: 'go-bric' },
+  { name: 'ReflectAI', short: 'REFLECT', tag: 'ENGINEERING', blurb: 'Deterministic end-of-day reflection â€” structured conversation to a psychological tree output.', slug: 'ReflectAI' },
+  { name: 'Sustainable-Agriculture-Project', short: 'AGRI Â· ML', tag: 'AI/ML', blurb: 'Crop recommendation from soil/climate features â€” full ML pipeline with preprocessing and evaluation.', slug: 'Sustainable-Agriculture-Project' },
+  { name: 'tushar_cse-AI-and-ML-A_AI-STUDY-PLANNER', short: 'STUDY Â· PLANNER', tag: 'BACKEND', blurb: 'AI study planner â€” syllabus upload, topic extraction, video curation. Frontend + backend.', slug: 'tushar_cse-AI-and-ML-A_AI-STUDY-PLANNER' },
+  { name: 'Kapoor-portfolio', short: 'PORTFOLIO', tag: 'FRONTEND', blurb: 'Personal portfolio site â€” React, Vite, Tailwind, GitHub Actions CI/CD.', slug: 'Kapoor-portfolio' },
+  { name: 'NPU-Fit-Checker-Automated-NPU-Fallback-Diagnosis', short: 'NPU Â· FIT', tag: 'SYSTEMS', blurb: 'Automated NPU fallback diagnosis â€” which layers fell back to CPU, on which target, and why. 30/30 tests green.', slug: 'NPU-Fit-Checker-Automated-NPU-Fallback-Diagnosis' },
+  { name: 'IBM-Cloud-project', short: 'IBM Â· CLOUD', tag: 'AI/ML', blurb: 'Predictive maintenance on IBM Cloud / Watsonx â€” Jupyter ML pipeline, training and evaluation.', slug: 'IBM-Cloud-project' },
 ];
 const REPO_BASE = 'https://github.com/Tusharkapoor-oop/';
 
@@ -263,7 +263,7 @@ let titlePoints = null;
   scene.add(titlePoints);
 }
 
-/* ================= tesseract (real 4D → 3D projection) ================= */
+/* ================= tesseract (real 4D â†’ 3D projection) ================= */
 let tetra, tetraMat;
 {
   const verts4 = [];
@@ -576,7 +576,7 @@ function updateSections(p) {
 
 /* ================= main loop ================= */
 const clock = new THREE.Clock();
-let frames = 0, fpsTimer = 0, loaderHidden = false;
+let frames = 0, lastFpsAt = 0, loaderHidden = false;
 let bootTime = 0;
 const mouseSmX = { v: 0 }, mouseSmY = { v: 0 };
 
@@ -635,7 +635,7 @@ function tick() {
     hovered = newHover;
     if (hovered !== null) {
       const pr = cells[hovered].proj;
-      tooltip.innerHTML = `<b>${pr.name}</b><span>${pr.blurb}</span><span>click to open ↗</span>`;
+      tooltip.innerHTML = `<b>${pr.name}</b><span>${pr.blurb}</span><span>click to open â†—</span>`;
       tooltip.classList.add('show');
       canvas.style.cursor = 'pointer';
     } else {
@@ -660,10 +660,9 @@ function tick() {
   updateSections(p);
 
   frames++;
-  fpsTimer += dt;
-  if (fpsTimer >= 0.5) {
-    fpsEl.textContent = 'fps ' + Math.round(frames / fpsTimer);
-    frames = 0; fpsTimer = 0;
+  if (t - lastFpsAt >= 0.5) {
+    fpsEl.textContent = 'fps ' + Math.round(frames / (t - lastFpsAt));
+    frames = 0; lastFpsAt = t;
   }
 
   renderer.clear();
@@ -688,5 +687,5 @@ addEventListener('resize', () => {
 });
 
 /* ================= go ================= */
-console.log('%c COGNITUM ', 'background:#4f46e5;color:#fff;font-size:16px', '— if you are reading this, you inspect like an engineer.');
+console.log('%c COGNITUM ', 'background:#4f46e5;color:#fff;font-size:16px', 'â€” if you are reading this, you inspect like an engineer.');
 requestAnimationFrame(tick);
