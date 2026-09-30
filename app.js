@@ -240,7 +240,7 @@ let titlePoints = null;
         pos.x += sin(uTime * 0.9 + aRnd * 40.0) * 0.07 * e;
         pos.y += cos(uTime * 0.7 + aRnd * 31.0) * 0.07 * e;
         vec4 mv = modelViewMatrix * vec4(pos, 1.0);
-        gl_PointSize = (2.2 + aRnd * 2.4) * uPixel * (170.0 / -mv.z);
+        gl_PointSize = (2.2 + aRnd * 2.4) * uPixel * (14.0 / -mv.z);
         gl_Position = projectionMatrix * mv;
         vMix = smoothstep(-7.0, 7.0, aTarget.x);
       }
@@ -375,7 +375,7 @@ const edgePairs = [];
   scene.add(lines);
 
   const nGeo = new THREE.BufferGeometry();
-  const nPos = new Float32Array(N * 3);
+  const nPos = new Float32Array(nodePos.length * 3);
   nodePos.forEach((v, i) => nPos.set([v.x, v.y, v.z], i * 3));
   nGeo.setAttribute('position', new THREE.BufferAttribute(nPos, 3));
   scene.add(new THREE.Points(nGeo, new THREE.PointsMaterial({
@@ -561,11 +561,13 @@ const fpsEl = document.getElementById('fps');
 function updateSections(p) {
   let activeIdx = 0;
   sections.forEach((s, i) => {
-    const fade = Math.min(sstep(s.in, s.in + 0.05, p), 1 - sstep(s.out - 0.05, s.out, p));
-    if (i === 0 && p < 0.04) { /* keep hero solid at very top */ }
+    const fin = i === 0 ? 1 : sstep(s.in, s.in + 0.05, p);
+    const fout = 1 - sstep(s.out - 0.05, s.out, p);
+    const fade = Math.min(fin, fout);
+    const baseY = i === 0 ? -30 : -46;
     s.t = fade;
     s.el.style.opacity = fade.toFixed(3);
-    s.el.style.transform = `translate(-50%, ${(-46 + (1 - fade) * 6).toFixed(2)}%)`;
+    s.el.style.transform = `translate(-50%, ${(baseY + (1 - fade) * 6).toFixed(2)}%)`;
     s.el.classList.toggle('on', fade > 0.35);
     if (fade > 0.5) activeIdx = i;
   });
